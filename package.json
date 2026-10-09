@@ -1,0 +1,29 @@
+{
+  "name": "qr-suggestion-box",
+  "version": "0.1.0",
+  "description": "QR-code suggestion box: scan, send text/file/audio/video to a chosen reader, track status, get replies",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/smoke.js"
+  },
+  "author": "BrytMa Tech Uganda",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.1",
+    "multer": "^2.4.0",
+    "nodemailer": "^10.0.16",
+    "qrcode": "^1.5.4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhumuza684/E-SUGGESTION-BOX-.git"
+  },
+  "homepage": "https://github.com/muhumuza684/E-SUGGESTION-BOX-#readme"
+}
