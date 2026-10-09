@@ -72,4 +72,4 @@ const check = async (name, fn) => { await fn(); n++; console.log('  ok  ' + name
   });
   console.log(`\nAll ${n} checks passed.`);
 })().then(() => cleanup(0), e => { console.error('\nFAILED:', e.message); cleanup(1); });
-function cleanup(code) { srv.kill(); fs.rmSync(DATA, { recursive: true, force: true }); process.exit(code); }
+function cleanup(code) { const done = () => { try { fs.rmSync(DATA, { recursive: true, force: true, maxRetries: 10, retryDelay: 200 }); } catch {} process.exit(code); }; if (srv.exitCode !== null) return done(); srv.once('exit', done); srv.kill(); setTimeout(done, 5000).unref(); }
